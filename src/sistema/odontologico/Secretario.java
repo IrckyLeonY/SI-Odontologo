@@ -10,7 +10,7 @@ package sistema.odontologico;
  * @author riky_
  */
 public class Secretario extends Usuario{
-    
+    //Datos miembro
     private String Id; //5 = 10
     private String Contrasena; //20 = 40 bytes
 
