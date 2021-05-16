@@ -61,6 +61,8 @@ public class PrincipalSecretaria extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 160, 160));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 170, 160));
+        jLabel5.getAccessibleContext().setAccessibleParent(jPanel1);
+
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 170, 160));
 
         bActualizarDatos.setBackground(new java.awt.Color(246, 245, 244));
@@ -74,7 +76,7 @@ public class PrincipalSecretaria extends javax.swing.JFrame {
                 bActualizarDatosActionPerformed(evt);
             }
         });
-        getContentPane().add(bActualizarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 210, 210));
+        getContentPane().add(bActualizarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 210, 30));
 
         bAgendarCita1.setBackground(new java.awt.Color(246, 245, 244));
         bAgendarCita1.setText("Agendar Cita");
@@ -82,7 +84,7 @@ public class PrincipalSecretaria extends javax.swing.JFrame {
         bAgendarCita1.setBorderPainted(false);
         bAgendarCita1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         bAgendarCita1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        getContentPane().add(bAgendarCita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 210, 210));
+        getContentPane().add(bAgendarCita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 210, 30));
 
         bAgendarCita.setBackground(new java.awt.Color(246, 245, 244));
         bAgendarCita.setText("Actualizar Datos");
@@ -94,7 +96,7 @@ public class PrincipalSecretaria extends javax.swing.JFrame {
                 bAgendarCitaActionPerformed(evt);
             }
         });
-        getContentPane().add(bAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 210, 210));
+        getContentPane().add(bAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 210, 30));
 
         jPanel1.setBackground(new java.awt.Color(246, 245, 244));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

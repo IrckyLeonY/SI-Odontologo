@@ -10,10 +10,10 @@ package sistema.odontologico;
  * @author riky_
  */
 public class Paciente {
-    private String Nombre;
-    private String Apellido;
+    private String Nombre; //20 = 40 bytes
+    private String Apellido; // 
     private String Correo_Electronico;
-    private String Celular;
+    private String Celular; //4 bytes
     private String FechaNacimiento;
     private String Genero;
     private String id_Clinico;

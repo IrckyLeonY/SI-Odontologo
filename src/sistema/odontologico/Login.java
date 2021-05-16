@@ -145,7 +145,7 @@ public class Login extends javax.swing.JFrame {
                 AccesoOdontologo.getOdontologo(AccesoOdontologo.buscarRegistroC(aux1)).getContrasena().equals(aux1)){
                 this.setVisible(false);
                 //Interfaz.AreaAdmin.append(AccessoAleatorioAdmin.getAdministrador(AccessoAleatorioAdmin.buscarRegistroUsuario(aux)).toString());
-                JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado con exitos");
+                //JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado con exitos");
             }
         }
         catch(IOException e) {
@@ -156,9 +156,9 @@ public class Login extends javax.swing.JFrame {
             if (RandomSecreterario.getSecretario(RandomSecreterario.buscarRegistroC(aux1)).getContrasena().equals(aux1)&&
                 RandomSecreterario.getSecretario(RandomSecreterario.buscarRegistro(aux)).getId().equals(aux)){
                 this.setVisible(false);
-                JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado con exitos");
                 PrincipalSecretaria A = new PrincipalSecretaria(this,true);
                 A.setVisible(true);
+                //JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado con exitos");
             }
         }
         catch(IOException e) {
