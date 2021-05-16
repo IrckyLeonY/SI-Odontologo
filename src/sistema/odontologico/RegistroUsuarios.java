@@ -14,14 +14,14 @@ import Fuentes.fuentes;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-public class RegistroOdontologo extends javax.swing.JDialog {
+public class RegistroUsuarios extends javax.swing.JDialog {
 
     /**
      * Creates new form RegistroOdontologo
      */
     
     fuentes tipofuentes;
-    public RegistroOdontologo(java.awt.Frame parent, boolean modal) {
+    public RegistroUsuarios(java.awt.Frame parent, boolean modal) {
         initComponents();
         tipofuentes = new fuentes();
         jLabel1.setFont(tipofuentes.fuente(tipofuentes.JOA,0, 50));
@@ -72,7 +72,7 @@ public class RegistroOdontologo extends javax.swing.JDialog {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Registro Odontólogo");
+        jLabel1.setText("Registro Usuario Consultorio");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 300, 60));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -193,6 +193,19 @@ public class RegistroOdontologo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this,"No se pueden ingresar los datos","Error",JOptionPane.WARNING_MESSAGE);
         }
         }
+        else if("Secretario".equals(Cargo)){
+        //Ingreso de datos
+        try {
+            RandomSecreterario.crearFileSecretario(new File("secretarios.dat"));
+            RandomSecreterario.agregarSecretario(new Secretario(Id,Contrasena,Nombre,Apellido,Cargo,Correo,Celular));
+            RandomSecreterario.cerrarArchivo();
+            Limpiar();
+            JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado los datos");
+        }
+        catch (IOException ex){
+            JOptionPane.showMessageDialog(this,"No se pueden ingresar los datos","Error",JOptionPane.WARNING_MESSAGE);
+        }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void Limpiar(){
@@ -220,20 +233,21 @@ public class RegistroOdontologo extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroOdontologo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroOdontologo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroOdontologo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroOdontologo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                RegistroOdontologo dialog = new RegistroOdontologo(new javax.swing.JFrame(), true);
+                RegistroUsuarios dialog = new RegistroUsuarios(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

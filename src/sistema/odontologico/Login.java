@@ -130,7 +130,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        RegistroOdontologo A = new RegistroOdontologo(this,true);
+        RegistroUsuarios A = new RegistroUsuarios(this,true);
         A.setSize(700, 530);
         A.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -140,12 +140,25 @@ public class Login extends javax.swing.JFrame {
         String aux = jTextField1.getText().trim();
         String aux1 = jPasswordField1.getText().trim();
         try{
-            AccesoOdontologo.crearFileOdontologo(new File("odontologos.dat") );
+            AccesoOdontologo.crearFileOdontologo(new File("odontologos.dat"));
             if (AccesoOdontologo.getOdontologo(AccesoOdontologo.buscarRegistro(aux)).getId().equals(aux) && 
                 AccesoOdontologo.getOdontologo(AccesoOdontologo.buscarRegistroC(aux1)).getContrasena().equals(aux1)){
                 this.setVisible(false);
                 //Interfaz.AreaAdmin.append(AccessoAleatorioAdmin.getAdministrador(AccessoAleatorioAdmin.buscarRegistroUsuario(aux)).toString());
-                JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado los datos");
+                JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado con exitos");
+            }
+        }
+        catch(IOException e) {
+            JOptionPane.showMessageDialog(this, "Error no coincide codigo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        try{
+            RandomSecreterario.crearFileSecretario(new File("secretarios.dat"));
+            if (RandomSecreterario.getSecretario(RandomSecreterario.buscarRegistroC(aux1)).getContrasena().equals(aux1)&&
+                RandomSecreterario.getSecretario(RandomSecreterario.buscarRegistro(aux)).getId().equals(aux)){
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(this,"¡Éxito!\nSe han ingresado con exitos");
+                PrincipalSecretaria A = new PrincipalSecretaria(this,true);
+                A.setVisible(true);
             }
         }
         catch(IOException e) {
