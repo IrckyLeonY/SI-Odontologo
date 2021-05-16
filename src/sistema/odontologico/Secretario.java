@@ -11,14 +11,24 @@ package sistema.odontologico;
  */
 public class Secretario extends Usuario{
     
-    private String Id;
-    private String Contrasena;
+    private String Id; //5 = 10
+    private String Contrasena; //20 = 40 bytes
 
     public Secretario(String Id, String Contrasena, String Nombre, String Apellido, String Cargo, String Correo_Electronico, int Celular) {
         super(Nombre, Apellido, Cargo, Correo_Electronico, Celular);
         this.Id = Id;
         this.Contrasena = Contrasena;
     }
+    public String getId() {
+        return Id;
+    }
+    public String getContrasena() {
+        return Contrasena;
+    }
+    public int getTamanoSecretario(){
+        return getTamanoUsuario()+Id.length()*2+Contrasena.length()*2;
+    }
+    
 
 
     

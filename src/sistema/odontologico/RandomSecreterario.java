@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication4;
+package sistema.odontologico;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,21 +36,21 @@ public class RandomSecreterario {
         flujo.close();
     }
     //Metodo boleano que  nos indica si se pudo o no agregar/guardar al empleado
-    public static boolean setSecretario (int i, Odontologo odon) throws IOException{
+    public static boolean setSecretario (int i, Secretario secre) throws IOException{
         if (i >= 0 && i <= getNumeroRegistros()){
-            if (odon.getTamanoOdontologo()>tamanoRegistros){
+            if (secre.getTamanoSecretario()>tamanoRegistros){
                 System.out.println("Tamano excedido de registro");
             } else {
             //Situamos el puntero sobre el tamano registro
             flujo.seek(i*tamanoRegistros);
             //Agrega el registro al archivo
-            flujo.writeUTF(odon.getId());
-            flujo.writeUTF(odon.getContrasena());
-            flujo.writeUTF(odon.getNombre());
-            flujo.writeUTF(odon.getApellido());
-            flujo.writeUTF(odon.getCargo());
-            flujo.writeUTF(odon.getCorreo_Electronico());
-            flujo.writeInt(odon.getCelular());
+            flujo.writeUTF(secre.getId());
+            flujo.writeUTF(secre.getContrasena());
+            flujo.writeUTF(secre.getNombre());
+            flujo.writeUTF(secre.getApellido());
+            flujo.writeUTF(secre.getCargo());
+            flujo.writeUTF(secre.getCorreo_Electronico());
+            flujo.writeInt(secre.getCelular());
             
             return true;
         }
@@ -60,8 +60,8 @@ public class RandomSecreterario {
         return false;
     }
     //Este metodo nos permite anadir un empleado desde la clase principal, y se lo coloca al final 
-    public static void agregarSecretario (Odontologo odon) throws IOException{
-        if (setOdontologo(numeroRegistros, odon)){
+    public static void agregarSecretario (Secretario secre) throws IOException{
+        if (setSecretario(numeroRegistros, secre)){
             numeroRegistros++;
         }
     }
@@ -83,7 +83,7 @@ public class RandomSecreterario {
         }
         for (int i = 0; i < getNumeroRegistros(); i++){
             flujo.seek(i*tamanoRegistros);
-            aux = getOdontologo(i).getId();
+            aux = getSecretario(i).getId();
             if (aux.equals(busqueda)){
                 return i;
             }
@@ -98,7 +98,7 @@ public class RandomSecreterario {
         }
         for (int i = 0; i < getNumeroRegistros(); i++){
             flujo.seek(i*tamanoRegistros);
-            aux = getOdontologo(i).getContrasena();
+            aux = getSecretario(i).getContrasena();
             if (aux.equals(busqueda)){
                 return i; //retorna la posicion.
             }
